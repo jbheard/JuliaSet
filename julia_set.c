@@ -63,17 +63,18 @@ int main(int argc, char* argv[])
 	Color *row_data = malloc(width*STEP* sizeof *row_data); // Array for pixel data
 	char zeroes[3] = {0,0,0}; //for padding
 	int padding = (4-((width*sizeof(Color))%4))%4;
-	int progress, d_prog, step; // Progress, delta progress, number of rows completed
+	int progress, d_prog = 0, step; // Progress, delta progress, number of rows completed
 	
 	row[0] = height;
 	row[1] = height < STEP ? 0 : height-STEP;
 
 	while(row[0] > 0) { // Continue reading until we have done all of the rows
-		d_prog = progress;
 		progress = 100 - (100*row[1] / height);
 		
-		if(progress - d_prog >= 10)
+		if(progress - d_prog >= 10) {
 			fprintf(stderr, "Working... %d%% done.\n", progress); // Display progress every ~10%
+			d_prog = progress;
+		}
 		
 		/* Receive the byte offset and column, build the current column of the Julia set
 			and then write it to the file. */
