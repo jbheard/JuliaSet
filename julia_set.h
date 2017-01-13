@@ -114,16 +114,17 @@ double LBOUND = -2.0f, UBOUND = 2.0f;
  *			Julia set 
 */
 void get_data(Color *dst, uint32_t *colorMap, Complex seed, int maxIters, int row[2], Complex (*funct)(Complex, Complex)) {
-	double x;
+	double y;
 	Complex z;
 	int num;
 	for(int j = 0; j < row[0]-row[1]; j++) {
-		// Maps x to be within WIDTH, width over the range (-2,2)
-		x = -2.0 + (j+row[1])*4.0/height;
+		y = minY + (double)((maxY-minY) / height) * (j+row[1]);
+		//y = -2.0 + (j+row[1])*4.0/height;
 
 		for(int i = 0; i < width; i ++) {
-			z.real = -2.0 + i*4.0/width;
-			z.imag = x;
+			z.real = minX + (double)((maxX-minX) / width) * i;
+			//z.real = -2.0 + i*4.0/width;
+			z.imag = y;
 			for(num = 0; num < maxIters; num ++) {
 				z = funct(z, seed);
 				if (norm(z) > TOOBIG) break;

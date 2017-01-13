@@ -66,9 +66,13 @@ int main(int argc, char* argv[])
 	};
 	
 	/* Set some defaults */
-	C.real = 0.0f;
+	C.real = 0.0f; // C - variable
 	C.imag = 0.0f;
-	width = 1000;
+	minX = -2.0f; // X
+	maxX = 2.0f;
+	minY = -2.0f; // Y
+	maxY = 2.0f;
+	width = 1000; // dimensions
 	height = 1000;
 
 	/* Start argument loop */
