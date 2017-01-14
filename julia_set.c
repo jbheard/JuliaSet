@@ -5,8 +5,6 @@
 Summary: Serial program for Julia set fractal generation. Uses same algorithm as parallel
 			implementation by generating a given number of rows at a time.
 
-Created on   : 02/26/2016
-Last updated : 12/17/2016
 **/
 #include <stdio.h>  //cout, cerr
 #include <stdint.h> //uint32_t
@@ -137,11 +135,12 @@ int main(int argc, char* argv[])
 	row[1] = height < STEP ? 0 : height-STEP;
 
 	while(row[0] > 0) { // Continue reading until we have done all of the rows
-		d_prog = progress;
 		progress = 100 - (100*row[1] / height);
 		
-		if(progress - d_prog >= 10)
+		if(progress - d_prog >= 10) {}
 			fprintf(stderr, "Working... %d%% done.\n", progress); // Display progress every ~10%
+			d_prog = progress;
+		}
 		
 		/* Receive the byte offset and column, build the current column of the Julia set
 			and then write it to the file. */

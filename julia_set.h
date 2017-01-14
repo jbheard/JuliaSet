@@ -3,13 +3,9 @@
 /**  julia_set.h **
 
 @author Jacob Heard
-	ID: 150941930
-	email: hear1930@mylaurier.ca
 @summary: Contains functions for building a Julia set fractal
 		  column-by-column and writing these data points to a file.
 
-Created on   : 02/26/2016
-Last updated : 12/18/2016
 **/
 #include <stdlib.h>
 #include <fcntl.h>
