@@ -34,8 +34,7 @@ void usage(const char *name) {
 }
 
 
-int main(int argc, char* argv[])
-{
+int main(int argc, char* argv[]) {
 	if(argc < 2) {
 		usage(argv[0]);
 		return 1;
@@ -136,8 +135,8 @@ int main(int argc, char* argv[])
 
 	while(row[0] > 0) { // Continue reading until we have done all of the rows
 		progress = 100 - (100*row[1] / height);
-		
-		if(progress - d_prog >= 10) {}
+
+		if(progress - d_prog >= 10) {
 			fprintf(stderr, "Working... %d%% done.\n", progress); // Display progress every ~10%
 			d_prog = progress;
 		}

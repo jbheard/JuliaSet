@@ -30,8 +30,7 @@ typedef struct Color {
 /** 
  * Converts a uint32_t RGBA value to Color
  */
-Color uint32_to_Color(uint32_t rgba)
-{
+Color uint32_to_Color(uint32_t rgba) {
 	Color rgb;
 	rgb.r = (unsigned char) ((rgba & 0xFF0000) >> 16);
 	rgb.g = (unsigned char) ((rgba & 0x00FF00) >> 8);
@@ -73,8 +72,7 @@ typedef struct {
 	double real, imag;
 } Complex;
 
-Complex f(Complex z0, Complex c)
-{
+Complex f(Complex z0, Complex c) {
 	/* The Julia set generator function, z0^2 + c
 		@param z0 - The Complex point to start at
 		@param c  - The constant to add
@@ -87,8 +85,7 @@ Complex f(Complex z0, Complex c)
 	return tmp;
 }
 
-double norm(Complex c)
-{
+double norm(Complex c) {
 	/* Returns the norm squared of a Complex value. The square root
 		is left out to increase precision.
 		@param c - The Complex number to find the norm of
