@@ -42,7 +42,6 @@ def make_file(seeds=None, palette=0):
 	else:
 		s1, s2 = choices(SEEDS, k=2)
 	
-	loaded = np.asarray(Image.open('test.jpg'))
 	do_the_thing = lambda x: Image.fromarray(make_julia_set(*get_seed(x, FPS * SECONDS, s1, s2), WIDTH, HEIGHT, palette), 'RGB')
 	
 	img, *imgs = [ do_the_thing(i) for i in range(SECONDS*FPS)]
